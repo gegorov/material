@@ -8,15 +8,12 @@ import { MessageListComponent } from './message-list/message-list.component';
 const routes: Routes = [
   {
     path: '',
-    component: MessageListComponent
-  }
+    component: MessageListComponent,
+  },
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MessagesRoutingModule
-  ],
-  declarations: [MessageListComponent]
+  imports: [CommonModule, MessagesRoutingModule],
+  declarations: [MessageListComponent],
 })
-export class MessagesModule { }
+export class MessagesModule {}
