@@ -2,13 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CustomersRoutingModule } from './customers-routing.module';
-import { CustomerListComponent } from './customer-list/customer-list.component';
-import { CustomerCardComponent } from './customer-card/customer-card.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { CustomersRoutingModule } from './customers-routing.module';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CustomerCardComponent } from './customer-card/customer-card.component';
+import { CustomerNewComponent } from './customer-new/customer-new.component';
 
 const routes: Routes = [
   {
@@ -18,7 +22,17 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, CustomersRoutingModule, MatButtonModule, MatCardModule, MatIconModule],
-  declarations: [CustomerListComponent, CustomerCardComponent],
+  imports: [
+    CommonModule,
+    CustomersRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+  ],
+  declarations: [CustomerListComponent, CustomerCardComponent, CustomerNewComponent],
 })
 export class CustomersModule {}
