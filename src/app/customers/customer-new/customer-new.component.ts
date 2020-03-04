@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 import { RepDialogComponent } from '../rep-dialog/rep-dialog.component';
 
@@ -12,17 +13,21 @@ import { RepDialogComponent } from '../rep-dialog/rep-dialog.component';
 export class CustomerNewComponent implements OnInit {
   public emailFormControl: FormControl;
 
-  constructor(private matDialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private snackbar: MatSnackBar) {}
 
   public openRepDialog(): void {
-    const dialogRef: MatDialogRef<RepDialogComponent> = this.matDialog.open(RepDialogComponent, {
+    const dialogRef: MatDialogRef<RepDialogComponent> = this.dialog.open(RepDialogComponent, {
       width: '250px',
       data: {},
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      alert(`User chouse ${result}`);
+      alert(`User choice ${result}`);
     });
+  }
+
+  public openUndoSnackBar(): void {
+
   }
 
   public ngOnInit() {

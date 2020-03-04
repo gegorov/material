@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { CustomersRoutingModule } from './customers-routing.module';
 import { CustomerListComponent } from './customer-list/customer-list.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
     MatIconModule,
     MatInputModule,
     MatRadioModule,
+    MatSnackBarModule,
   ],
   declarations: [
     CustomerListComponent,
