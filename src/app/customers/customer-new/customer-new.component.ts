@@ -27,7 +27,13 @@ export class CustomerNewComponent implements OnInit {
   }
 
   public openUndoSnackBar(): void {
+    const snackbarRef = this.snackbar.open('Customer saved', 'UNDO', {
+      horizontalPosition: 'end',
+    });
 
+    snackbarRef.onAction().subscribe(() => {
+      alert('UNDO that save!');
+    });
   }
 
   public ngOnInit() {
