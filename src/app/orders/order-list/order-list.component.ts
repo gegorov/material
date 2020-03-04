@@ -31,6 +31,69 @@ const ELEMENT_DATA: Order[] = [
     description: 'Olive Oil',
     isChecked: false,
   },
+  {
+    orderDate: new Date(),
+    orderNumber: 100,
+    total: 29.99,
+    description: '2lbs of tuna',
+    isChecked: false,
+  },
+  {
+    orderDate: new Date(),
+    orderNumber: 101,
+    total: 2.99,
+    description: 'Pasta Barilla',
+    isChecked: false,
+  },
+  {
+    orderDate: new Date(),
+    orderNumber: 102,
+    total: 5.49,
+    description: 'Olive Oil',
+    isChecked: false,
+  },
+  {
+    orderDate: new Date(),
+    orderNumber: 100,
+    total: 29.99,
+    description: '2lbs of tuna',
+    isChecked: false,
+  },
+  {
+    orderDate: new Date(),
+    orderNumber: 101,
+    total: 2.99,
+    description: 'Pasta Barilla',
+    isChecked: false,
+  },
+  {
+    orderDate: new Date(),
+    orderNumber: 102,
+    total: 5.49,
+    description: 'Olive Oil',
+    isChecked: false,
+  },
+  {
+    orderDate: new Date(),
+    orderNumber: 100,
+    total: 29.99,
+    description: '2lbs of tuna',
+    isChecked: false,
+  },
+  {
+    orderDate: new Date(),
+    orderNumber: 101,
+    total: 2.99,
+    description: 'Pasta Barilla',
+    isChecked: false,
+  },
+  {
+    orderDate: new Date(),
+    orderNumber: 102,
+    total: 5.49,
+    description: 'Olive Oil',
+    isChecked: false,
+  },
 ];
 
 @Component({
@@ -47,7 +110,7 @@ export class OrderListComponent implements OnInit {
     'total',
   ];
 
-  public dataSource = new MatTableDataSource(ELEMENT_DATA);
+  public dataSource: MatTableDataSource<Order> = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -55,5 +118,11 @@ export class OrderListComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
+  }
+
+  public selectAll(): void {
+    for (const element of ELEMENT_DATA) {
+      element.isChecked = !element.isChecked;
+    }
   }
 }

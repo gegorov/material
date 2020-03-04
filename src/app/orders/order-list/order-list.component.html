@@ -1,6 +1,10 @@
 <mat-tab-group>
   <mat-tab label="Orders">
-    <div class="order-actions"></div>
+    <div class="order-actions">
+      <button mat-button color="primary">DELETE</button>
+      <button mat-button color="primary">ARCHIVE</button>
+    </div>
+
     <div class="order-container">
       <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
         <ng-container matColumnDef="action">
