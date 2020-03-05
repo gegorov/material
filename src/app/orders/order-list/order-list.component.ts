@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
+import { PageEvent } from '@angular/material';
 
 interface Order {
   orderDate: Date;
@@ -110,13 +111,32 @@ export class OrderListComponent implements OnInit {
     'total',
   ];
 
-  public dataSource: MatTableDataSource<Order> = new MatTableDataSource(ELEMENT_DATA);
+  public dataSource: MatTableDataSource<Order>;
+
+  public length = 100;
+  public pageIndex = 0;
+  public pageSize = 10;
+  public pageSizeOptions = [1, 2, 5, 10];
+
+  public pageEvent: PageEvent;
 
   @ViewChild(MatSort) sort: MatSort;
 
   constructor() {}
 
+  public loadData(pageIndex, pageSize): void {
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA.slice(pageIndex, pageIndex + pageSize));
+  }
+
+  public onPageChange(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.loadData(this.pageIndex, this.pageSize);
+  }
+
   ngOnInit() {
+    this.loadData(0, this.pageSize);
+
     this.dataSource.sort = this.sort;
   }
 
